@@ -14,7 +14,7 @@ int main(){
   ios::sync_with_stdio(0);
   cin.tie(0);
 
-  unordered_set<int>s;
+  set<int>s;
 
   int n;
   cin >> n;
@@ -23,6 +23,8 @@ int main(){
     int k;
     cin >> k;
     s.insert(k);
-}
+  }
 
 cout << s.size();
+}
+
