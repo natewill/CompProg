@@ -13,4 +13,16 @@ int main(){
   //make i/o faster
   ios::sync_with_stdio(0);
   cin.tie(0);
+
+  unordered_set<int>s;
+
+  int n;
+  cin >> n;
+
+  for(int i=0; i<n; i++){
+    int k;
+    cin >> k;
+    s.insert(k);
 }
+
+cout << s.size();
