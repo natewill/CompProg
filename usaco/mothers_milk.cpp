@@ -16,9 +16,17 @@ using namespace std;
 typedef long long ll;
 
 //int ma, mb, mc; 
+//arrays are automatically pointers, vectors are not
+//& means pass by pointer? i think
+//also you can do this in c++
+
+bool checked[20][20][20] = {false};
+
 void swap_buckets(int bucket1, int bucket2, vector<int> milk, int cap[], unordered_set<int>& milk_in_c, int lvl){
+  checked[milk[0]][milk[1]][milk[2]] = true;
   if(bucket1 == bucket2 || lvl > 12)
     return;
+
   if(milk[bucket1] + milk[bucket2] > cap[bucket2]){
     int temp = milk[bucket1] + milk[bucket2];
     milk[bucket2] = cap[bucket2];
@@ -31,10 +39,12 @@ void swap_buckets(int bucket1, int bucket2, vector<int> milk, int cap[], unorder
   if(milk[0] == 0){
     milk_in_c.insert(milk[2]);
   }
-  
+  if(checked[milk[0]][milk[1]][milk[2]])
+    return;
+    //optimization!
   for(int i=0; i<3; i++){
     for(int j=0; j<3; j++){
-      if(!(i == bucket1 && j == bucket2) && !(i == bucket2 && j == bucket1) && i != j && milk[j] != cap[j] && milk[i] != 0){
+      if(!(i == bucket1 && j == bucket2) && !(i == bucket2 && j == bucket1) && i != j && milk[j] != cap[j] && milk[i] != 0){//should of thought about this more
         swap_buckets(i, j, milk, cap, milk_in_c, lvl+1);
       }
     }
