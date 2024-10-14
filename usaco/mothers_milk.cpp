@@ -24,7 +24,7 @@ bool checked[20][20][20] = {false};
 
 void swap_buckets(int bucket1, int bucket2, vector<int> milk, int cap[], unordered_set<int>& milk_in_c, int lvl){
   checked[milk[0]][milk[1]][milk[2]] = true;
-  if(bucket1 == bucket2 || lvl > 12)
+  if(lvl > 12)
     return;
 
   if(milk[bucket1] + milk[bucket2] > cap[bucket2]){
