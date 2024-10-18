@@ -6,7 +6,7 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-# Get the filename from the first argument
+# Get the filename fom the first argument
 FILE=$1
 
 # Compile the C++ file with g++ using the specified options
@@ -14,7 +14,7 @@ g++ -std=c++11 -O2 -Wall "$FILE" -o "${FILE%.cpp}"
 
 # Check if compilation was successful
 if [ $? -eq 0 ]; then
-  echo "Compilation successful! Executable created: ${FILE%.cpp}"
+  echo -e "\033[0;32mCompilation successful! Executable created: ${FILE%.cpp}\033[0m"
 else
   echo "Compilation failed."
 fi
