@@ -1,4 +1,16 @@
-#include<bits/stdc++.h>
+#include <map>
+#include <vector>
+#include <cmath>
+#include <algorithm>
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <numeric>
+#include <queue>
+#include <set>
+#include <functional>
+#include <tuple>
+#include <deque>
 
 using namespace std;
 
